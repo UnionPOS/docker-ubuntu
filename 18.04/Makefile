@@ -8,10 +8,15 @@ export DOCKER_BUILD_FLAGS =
 
 build: docker/build
 .PHONY: build
+
+push:
+	$(DOCKER) push $(DOCKER_IMAGE_NAME)
+.PHONY: push
+
 run:
-	docker container run --rm --attach STDOUT ${DOCKER_IMAGE_NAME}
+	$(DOCKER) container run --rm --attach STDOUT ${DOCKER_IMAGE_NAME}
 .PHONY: run
 
 it:
-	docker run -it ${DOCKER_IMAGE_NAME} /bin/bash
+	$(DOCKER) run -it ${DOCKER_IMAGE_NAME} /bin/bash
 .PHONY: it
