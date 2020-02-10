@@ -21,6 +21,8 @@ RUN set -ex \
   && buildDeps=' \
   build-essential \
   ca-certificates \
+  curl \
+  wget \
   pv \
   software-properties-common \
   tzdata \
