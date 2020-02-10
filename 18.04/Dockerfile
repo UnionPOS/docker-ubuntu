@@ -1,5 +1,5 @@
-FROM unionpos/aws-vault:4.6.4 AS aws-vault
-FROM unionpos/chamber:2.5.0 AS chamber
+FROM unionpos/aws-vault:5.2.0 AS aws-vault
+FROM unionpos/chamber:2.7.5 AS chamber
 
 FROM ubuntu:18.04
 
