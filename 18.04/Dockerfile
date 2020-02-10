@@ -18,22 +18,24 @@ COPY config/dpkg_nodoc /etc/dpkg/dpkg.cfg.d/01_nodoc
 COPY config/dpkg_nolocales /etc/dpkg/dpkg.cfg.d/01_nolocales
 
 RUN set -ex \
-    && buildDeps=' \
-    build-essential \
-    ca-certificates \
-    software-properties-common \
-    tzdata \
-    ' \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends $buildDeps \
-    && rm -rf /var/lib/apt/lists/*
+  && buildDeps=' \
+  build-essential \
+  ca-certificates \
+  software-properties-common \
+  tzdata \
+  ' \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends $buildDeps \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN rm -rf /var/cache/apt/archives  \
-    && rm -rf /usr/share/doc/ \
-    && rm -rf /usr/share/man/ \
-    && rm -rf /usr/share/locale/
+  && rm -rf /usr/share/doc/ \
+  && rm -rf /usr/share/man/ \
+  && rm -rf /usr/share/locale/
 
 COPY --from=aws-vault /aws-vault /bin/aws-vault
+
+COPY --from=chamber /chamber /bin/chamber
 
 COPY scripts/bashui.sh /usr/local/lib/
 
