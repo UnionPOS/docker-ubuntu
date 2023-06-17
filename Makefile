@@ -18,10 +18,10 @@ push:
 .PHONY: push
 
 run:
-	$(DOCKER) container run --rm \
+	$(DOCKER) container run --rm --platform linux/amd64 \
 		--attach STDOUT ${DOCKER_IMAGE_NAME}
 .PHONY: run
 
 it:
-	$(DOCKER) run -it ${DOCKER_IMAGE_NAME} /bin/bash
+	$(DOCKER) run -it --platform linux/amd64 ${DOCKER_IMAGE_NAME} /bin/bash
 .PHONY: it
