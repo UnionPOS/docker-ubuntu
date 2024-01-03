@@ -1,7 +1,7 @@
 FROM unionpos/aws-vault:5.2.0 AS aws-vault
 FROM unionpos/chamber:2.7.5 AS chamber
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
